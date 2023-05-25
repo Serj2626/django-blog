@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'blog/home.css' %}">
+
+{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block content %}
+    {% for new in news %}
+        <div class="homepage">
+            <h1>{{ new.title }}</h1>
+            <p>{{ new.text|truncatechars:222 }}</p>
+            <p>Дата публикации: {{ new.date|date:'j F Y | H:i:s' }}</p>
+            <p>Автор: {{ new.author }}</p>
+        </div>
+
+
+    {% endfor %}
+{% endblock %}

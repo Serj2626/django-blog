@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+
+{% load crispy_forms_tags %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block content %}
+    <div class="form-section">
+        <h2>Авторизация на сайте</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-outline-warning">Войти</button>
+        </form>
+        <hr>
+
+    </div>
+
+{% endblock %}
